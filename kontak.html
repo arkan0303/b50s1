@@ -14,7 +14,7 @@
                     <img src="./image/logo (1).png" alt="logo">
                 </li>
                 <li>
-                    <a class="active" href="index.html">Home</a>
+                    <a class="" href="index.html">Home</a>
                 </li>
                     <li><a href="">My Project</a>
                 </li>
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <label for="input-name">Nama</label>
-                <input type="text" id="Input-name" required>
+                <input type="text" id="input-name" required>
             </div>
             <div>
                 <label for="input-email">Email</label>
@@ -47,9 +47,9 @@
                 <label for="input-select">Subject</label>
                 <select name="" id="input-select" required>
                     <option value="" hidden>Select</option>
-                    <option value="">Backend</option>
-                    <option value="">Frontend</option>
-                    <option value="">Fulstack</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Fulstack">Fulstack</option>
                 </select>
             </div>
             
@@ -59,14 +59,12 @@
             </div>
     
             <div>
-                <button>
-                    Submit
-                </button>
+                <button type="button" onclick="submitData()"> Submit </button>
             </div>
     
     
         </form>
     </div>
-    
+    <script src="kontak.js"></script>
 </body>
 </html>
