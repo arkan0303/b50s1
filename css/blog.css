@@ -1,0 +1,244 @@
+/* css navbar */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: rgb(198, 198, 181);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items:center ;
+}
+
+nav ul li {
+    margin: 25px;
+    font-size: 25px;
+    
+}
+
+nav ul li .active{
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li:hover{
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius:15px;
+}
+
+.nav-left{
+    /* background-color: aqua; */
+    flex: 50%;
+}
+
+.nav-right{
+    /* background-color: brown; */
+    flex: 50%;
+    text-align: end;
+    margin-right: 25px;
+}
+
+.nav-right a{
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.nav-right a:hover{
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+}
+/* css navbar end */
+
+/* css bagian blog */
+
+.blog-form{
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+.blog-form .form-container{
+    width: 500px;
+    /* background-color: aqua; */
+}
+.blog-form .form-container h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog-form form label{
+    font-size: 20px;
+    font-weight: 400;
+}
+.blog-form form input, textarea, select{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f4f3f3;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    resize: none;
+}
+
+.blog-form textarea{
+    height: 250px;
+}
+.blog-form form .input-blog-image-group{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.blog-form form .input-blog-image-group label p{
+    font-size: 15px;
+}
+.blog-form form .input-blog-image-group label{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     
+}
+
+.button-group{
+    margin-top: 40px;
+    background-color: orangered;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
+}
+
+.blog hr{
+    border: 1px solid #dbdbdb;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ .blog .blog-list {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+ }
+ .blog .blog-list .blog-list-item {
+    width: 80%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #dbdbdb;
+    border-radius: 8px;
+    display: flex;
+ }
+ .blog .blog-list .blog-list-item .blog-image{
+    flex: 1;
+ }
+ .blog .blog-list .blog-list-item .blog-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+ }
+ .blog .blog-list .blog-list-item .blog-content{
+    padding-left: 20px;
+    flex: 2;
+ }
+
+ .blog .blog-list .btn-group{
+    text-align: right;
+    margin-bottom: 20px;
+ }
+ .blog .blog-list .btn-group .btn-edit{
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #dbdbdb;
+    color: black;
+ }
+ .blog .blog-list .btn-group .btn-post{
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #d41d1d;
+    color: white;
+ }
+ .blog .blog-list h1 a{
+    text-decoration: none;
+    color: black;
+ }
+ .blog .blog-list .detail-blog-content{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 20px;
+ }
+ .blog .blog-list .blog-list-item p{
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+ }
+
+ /* blog detail */
+ .blog-detail{
+    display: flex;
+    justify-content: center;
+ }
+.blog-detail-container{
+    width: 80%;
+    margin: 40px 0;
+}
+.blog-detail-container img{
+    width: 100%;
+}
+.blog-detail-container h1{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 120px;
+    margin-bottom: 20px;
+}
+.blog-detail-container .author{
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 20px;
+}
+.blog-detail-container p{
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 140%;
+    text-align: justify;
+}

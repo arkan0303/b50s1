@@ -1,0 +1,240 @@
+/* css navbar */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: rgb(198, 198, 181);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items:center ;
+}
+
+nav ul li {
+    margin: 25px;
+    font-size: 25px;
+    
+}
+
+nav ul li .active{
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li:hover{
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius:15px;
+}
+
+.nav-left{
+    /* background-color: aqua; */
+    flex: 50%;
+}
+
+.nav-right{
+    /* background-color: brown; */
+    flex: 50%;
+    text-align: end;
+    margin-right: 25px;
+}
+
+.nav-right a{
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.nav-right a:hover{
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+}
+/* project css */
+.project-form{
+    width: 600px;
+    border: 5px solid red;
+    border-radius: 20px;
+    box-shadow: 7px 7px;
+    margin: 25px auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.project-form .form-container{
+    width: 400px;
+}
+.project-form .form-container h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.project-form form label{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.input1 .nama input{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    resize: none;
+}
+.left2 input{
+    width: 50%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    resize: none;
+}
+.right2 input{
+    width: 50%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    resize: none;
+}
+.input1 textarea{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    resize: none;
+}
+.input1 textarea{
+    height: 150px;
+}
+.checkbox{
+    display: flex;
+}
+.checkbox .right{
+    margin-left: 25px;
+}
+.upload{
+    margin-top: 20px;
+}
+.input-image-group{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+    background: #f4f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.input-image-group label p{
+    font-size: 15px;
+}
+.input-image-group label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.klik button{
+    background-color: brown;
+    color: white;
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
+}
+hr{
+    border: 1px solid #dbdbdb;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.kelas1{
+    border: 1px solid #dbdbdb;
+    /* width: 80%;
+     margin-left: auto;
+    margin-right: auto; */
+    /* margin: 15px auto;
+    margin-left: 30px; */
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aqua;
+}
+
+.kelas2{
+    margin-left: 25px;
+    /* margin: 5px auto; */
+    width: 500px;
+    /* height: 500px; */
+    /* border: 2px solid  red; */
+    padding: 15px 25px;
+    background-color: #dbdbdb;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(110, 108, 108);
+}
+.kelas3 img{
+    width: 100%;
+}
+.kelas4 p{
+    font-size: 15px;
+    font-weight: 40px;
+    margin-bottom: 20px;
+}
+.icon{
+    display:flex ;
+    margin-bottom: 15px;
+    /* margin-left: 15px; */
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+}
+.icon img{
+    margin: 0 15px;
+}
+.kelas5 button{
+    background-color: black;
+    color: white;
+    padding: 5px 105px;
+    border: 1px solid rgb(87, 84, 84);
+    border-radius: 5px;
+    /* margin-left: 5px; */
+}
