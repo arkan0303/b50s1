@@ -105,7 +105,7 @@ function addData (event) {
         description,
         image,
         printIcon,
-        postAt : "04 Oktober 2023",
+        postAt : new Date(),
         author : "Arkanul Adelis",
     };
 
@@ -120,7 +120,7 @@ function renderProject (){
 
     for (let index = 0; index < dataProject.length; index ++ ){
         console.log(dataProject[index])
-
+decodeURI
         document.getElementById("contents").innerHTML += `
         <div id="contents" class="kelas1">
             <div class="kelas2">
@@ -153,3 +153,10 @@ function renderProject (){
         `
     }
 }
+
+// function getFultime() {
+//     let time = new Date ();
+//     console.log(time)
+// } 
+
+// getFultime()

@@ -197,7 +197,7 @@ hr{
     flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .kelas2{
