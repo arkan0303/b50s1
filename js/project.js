@@ -268,4 +268,4 @@ function getDinstanceTime (time){
 
 setInterval(function () {
     renderProject()
-}, 3000)
+}, 300000)

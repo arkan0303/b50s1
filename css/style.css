@@ -79,13 +79,16 @@ nav ul li:hover{
     margin:0 auto ;
     box-shadow: 10px 10px;
 }
+.pembungkus{
+    display: flex;
+}
 
 .justify {
     text-align: justify;
 }
 .button {
     display: flex;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .kontak a{
     background-color: black;
@@ -111,6 +114,7 @@ nav ul li:hover{
     font-size: 30px;
 }
 .sec-left{
+    /* background-color: aqua; */
     /* margin-left: 100px; */
     /* background-color: aqua; */
     flex: 50%;
@@ -123,7 +127,7 @@ nav ul li:hover{
 }
 .bungkus {
     background-color:rgb(226, 226, 217);
-    width: 85%;
+    width: 50%;
     height: 450px;
     border-radius: 10px 10px 0 0;
     border-radius: 10px;
@@ -198,9 +202,13 @@ nav ul li:hover{
 @media only screen and (max-width : 900px) {
     .conten {
         width: 100%;
+        /* display: block; */
     }
     .pembungkus{
-        display: flex;
+        display: block;
+    }
+    .button{
+        margin: 25px 0 0 0;
     }
     .button .kontak a{
         background-color: black;
@@ -209,34 +217,22 @@ nav ul li:hover{
         padding:5px 5px ;
         border-radius: 10px;
     }
+    .icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0 0 0;
+        /* align-items: center; */
+    }
+    .bungkus{
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
     .item-collapse{
         display: none;
     }
     #barsMenu{
         display: block;
     }
-    
-    .sec-left {
-        left: 100%;
-        /* display: flex; */
-        justify-content: center;
-    }
-
-    .sec-right{
-        margin-left: 0px;
-
-    }
-}
-
-
-/* section{
-    background-color: aqua;
-    
-    border: 1;
-    
-
-}
-.sec-right img{
-    height: 50%;
-    width: 50%;
-} */
+}    
