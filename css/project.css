@@ -55,7 +55,7 @@ nav ul li:hover{
     /* background-color: brown; */
     flex: 50%;
     text-align: end;
-    /* margin-right: 25px; */
+    margin-right: 25px;
 }
 
 .nav-right a{
@@ -72,17 +72,17 @@ nav ul li:hover{
 /* project css */
 .project-form{
     /* background-color: ; */
-    width: 600px;
+    width: 400px;
     border: 5px solid brown;
     border-radius: 20px;
     box-shadow: 7px 7px brown;
     margin: 25px auto;
-    padding: 20px 0;
+    padding: 0px 50px;
     display: flex;
     justify-content: center;
 }
 .project-form .form-container{
-    width: 400px;
+    width: 300px;
 }
 .form-container input, label, textarea{
     color: white;
@@ -266,4 +266,49 @@ hr{
     padding: 5px 115px;
     border: 1px solid rgb(87, 84, 84);
     border-radius: 5px;
+}
+
+#barsMenu{
+    display: none;
+}
+
+.bars{
+    list-style: none;
+    font-size: 23px;
+    display: none;
+}
+.bars a{
+    text-decoration: none;
+    color: white;
+    background-color: #9a9a9a;
+    padding: 10px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bars .bars-active{
+    text-decoration: none;
+    color: white;
+    background-color: brown;
+    padding: 10px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width : 428px){
+    .project{
+        width: 100%;
+    }
+    .project-form .form-container{
+        width: 100%;
+    }
+    .project .project-form{
+        width: 70%;
+    } 
+    .contents{
+        justify-content: center;
+    }
 }
