@@ -106,7 +106,7 @@ button:hover{
 }
 
 #barsMenu{
-    display: block;
+    display: none;
 }
 
 .bars{
