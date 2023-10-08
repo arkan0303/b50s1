@@ -55,7 +55,7 @@ nav ul li:hover{
     /* background-color: brown; */
     flex: 50%;
     text-align: end;
-    margin-right: 25px;
+    /* margin-right: 25px; */
 }
 
 .nav-right a{
