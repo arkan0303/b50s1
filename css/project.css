@@ -5,15 +5,16 @@
 *{
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: white;
 }
 body{
+    background-color: black;
     margin: 0;
     padding: 0;
 }
 
 nav{
-    background-color: rgb(198, 198, 181);
+    background-color: black;
     height: 10vh;
     display: flex;
     align-items: center;
@@ -33,7 +34,7 @@ nav ul li {
 }
 
 nav ul li .active{
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
@@ -58,7 +59,7 @@ nav ul li:hover{
 }
 
 .nav-right a{
-    background-color: black;
+    background-color: brown;
     color: white;
     padding: 10px 15px;
     border-radius: 10px;
@@ -70,10 +71,11 @@ nav ul li:hover{
 }
 /* project css */
 .project-form{
+    /* background-color: ; */
     width: 600px;
-    border: 5px solid red;
+    border: 5px solid brown;
     border-radius: 20px;
-    box-shadow: 7px 7px;
+    box-shadow: 7px 7px brown;
     margin: 25px auto;
     padding: 20px 0;
     display: flex;
@@ -81,6 +83,16 @@ nav ul li:hover{
 }
 .project-form .form-container{
     width: 400px;
+}
+.form-container input, label, textarea{
+    color: white;
+}
+.input-image-group p {
+    color: white;
+    /* border: 1px solid black; */
+    background-color: black;
+    padding: 5px 15px;
+    border-radius: 10px;
 }
 .project-form .form-container h1{
     text-align: center;
@@ -99,7 +111,7 @@ nav ul li:hover{
     margin-top: 5px;
     margin-bottom: 10px;
     background: #f4f3f3;
-    border: 1px solid #c4c4c4;
+    border: 1px solid brown;
     border-radius: 8px;
     resize: none;
 }
@@ -111,7 +123,7 @@ nav ul li:hover{
     margin-top: 5px;
     margin-bottom: 10px;
     background: #f4f3f3;
-    border: 1px solid #c4c4c4;
+    border: 1px solid brown;
     border-radius: 8px;
     resize: none;
 }
@@ -123,7 +135,7 @@ nav ul li:hover{
     margin-top: 5px;
     margin-bottom: 10px;
     background: #f4f3f3;
-    border: 1px solid #c4c4c4;
+    border: 1px solid brown;
     border-radius: 8px;
     resize: none;
 }
@@ -135,7 +147,7 @@ nav ul li:hover{
     margin-top: 5px;
     margin-bottom: 10px;
     background: #f4f3f3;
-    border: 1px solid #c4c4c4;
+    border: 1px solid brown;
     border-radius: 8px;
     resize: none;
 }
@@ -159,7 +171,7 @@ nav ul li:hover{
     margin-bottom: 20px;
     padding: 0 5px;
     background: #f4f3f3;
-    border: 1px solid #c4c4c4;
+    border: 1px solid brown;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -181,38 +193,35 @@ nav ul li:hover{
     float: right;
 }
 hr{
-    border: 1px solid #dbdbdb;
+    border: 1px solid brown;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     
 }
 .kelas1{
-    border: 1px solid #dbdbdb;
-    /* width: 80%;
-     margin-left: auto;
-    margin-right: auto; */
-    /* margin: 15px auto;
-    margin-left: 30px; */
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     display: flex;
     flex-wrap: wrap;
-    /* background-color: aqua; */
+    /* border: 1px solid red; */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; 
 }
+  
 
 .kelas2{
-    margin-left: 25px;
-    /* margin: 5px auto; */
     width: 500px;
-    /* height: 500px; */
-    /* border: 2px solid  red; */
     padding: 15px 25px;
-    background-color: #dbdbdb;
+    margin: 20px auto;
+    border: 1px solid brown;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px rgb(110, 108, 108);
+    box-shadow: 5px 5px 5px brown;
 }
 .kelas3 img{
     width: 100%;
+    border: 1px solid brown;
+    border-radius: 10px;
 }
 .kelas4 p{
     font-size: 15px;
@@ -221,20 +230,40 @@ hr{
 }
 .icon{
     display:flex ;
-    margin-bottom: 15px;
+    margin-bottom:10px ;
     /* margin-left: 15px; */
     font-size: 25px;
     width: 50px;
     height: 50px;
 }
+.icon{
+   margin-left: 0;
+}
 .icon img{
     margin: 0 15px;
 }
-.kelas5 button{
+.kelas5 {
+    display: flex;
+}
+.kelas5 .btn-left{
+    flex: 50%;
+    /* background-color: aqua; */
+}
+.kelas5 .btn-left button{
     background-color: black;
     color: white;
-    padding: 5px 105px;
+    padding: 5px 100px;
     border: 1px solid rgb(87, 84, 84);
     border-radius: 5px;
-    /* margin-left: 5px; */
+}
+.kelas5 .btn-right{
+    flex: 50%;
+    /* background-color: aquamarine; */
+}
+.kelas5 .btn-right button {
+    background-color: black;
+    color: white;
+    padding: 5px 115px;
+    border: 1px solid rgb(87, 84, 84);
+    border-radius: 5px;
 }

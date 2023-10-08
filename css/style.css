@@ -74,9 +74,9 @@ nav ul li:hover{
     width: 70%;
     /* border: 1px solid black; */
     border-radius: 10px;
-    padding: 20px 20px;
-    display: flex;
-    margin:70px auto ;
+    padding: 5px 5px;
+    /* display: flex; */
+    margin:0 auto ;
     box-shadow: 10px 10px;
 }
 
@@ -111,7 +111,7 @@ nav ul li:hover{
     font-size: 30px;
 }
 .sec-left{
-    margin-left: 100px;
+    /* margin-left: 100px; */
     /* background-color: aqua; */
     flex: 50%;
 }
@@ -123,7 +123,7 @@ nav ul li:hover{
 }
 .bungkus {
     background-color:rgb(226, 226, 217);
-    width: 50%;
+    width: 85%;
     height: 450px;
     border-radius: 10px 10px 0 0;
     border-radius: 10px;
@@ -131,7 +131,7 @@ nav ul li:hover{
     margin: 0 auto;
 }
 .bungkus h2{
-    margin: 25px 0 0 0;
+    margin: 5px 0 0 0;
     padding: 0;
 }
 .bungkus p{
@@ -166,6 +166,67 @@ nav ul li:hover{
 }
 
 
+#barsMenu{
+    display: none;
+}
+.hamburgers-nav-container{
+    font-size: 23px;
+    list-style: none;
+    display: none;
+}
+.hamburgers-nav-container a {
+    text-decoration: none;
+    color: white;
+    background-color: #9a9a9a;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid white;
+}
+.hamburgers-nav-container .hamburgers-active{
+    text-decoration: none;
+    color: white;
+    background-color:orangered;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+@media only screen and (max-width : 900px) {
+    .conten {
+        width: 100%;
+    }
+    .pembungkus{
+        display: flex;
+    }
+    .button .kontak a{
+        background-color: black;
+        font-size: 10px;
+        color: white;
+        padding:5px 5px ;
+        border-radius: 10px;
+    }
+    .item-collapse{
+        display: none;
+    }
+    #barsMenu{
+        display: block;
+    }
+    
+    .sec-left {
+        left: 100%;
+        /* display: flex; */
+        justify-content: center;
+    }
+
+    .sec-right{
+        margin-left: 0px;
+
+    }
+}
 
 
 /* section{
