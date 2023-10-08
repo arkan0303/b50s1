@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/kontak.css">
 </head>
 <body>
@@ -13,19 +14,32 @@
                 <li>
                     <img src="/image/logo (1).png" alt="logo">
                 </li>
-                <li>
-                    <a class="" href="index.html">Home</a>
+                <li class="item-collapse">
+                    <a  href="/index.html">Home</a>
                 </li>
-                    <li><a href="kontak.html">My Project</a>
-                </li>
+                    <li class="item-collapse">
+                        <a class="active" href="/project.html">My Project</a>
+                    </li>
             </ul>
 
         </div>
-        <div class="nav-right">
-            <a href="kontak.html">Contact Me</a>
-
+        <div class="nav-right item-collapse">
+            <a href="/kontak.html">Contact Me</a>
         </div>
+
+        <div class="nav-right" id="barsMenu">
+            <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openBars()">
+                <i class="fa-2x fa-solid fa-bars"></i>
+            </button>
+        </div>
+
     </nav>
+
+    <div class="bars" id="bars">
+        <a href="index.html">Home</a>
+        <a href="project.html" >My Project</a>
+        <a href="kontak.html" class="bars-active">Contact</a>
+    </div>
     <div class="konten">
         <form >
             <div>
@@ -66,5 +80,6 @@
         </form>
     </div>
     <script src="/js/kontak.js"></script>
+    <script src="/js/tak.js"></script>
 </body>
 </html>

@@ -104,3 +104,39 @@ button:hover{
     color: black;
     font-weight: bold
 }
+
+#barsMenu{
+    display: block;
+}
+
+.bars{
+    list-style: none;
+    font-size: 23px;
+    display: none;
+}
+.bars a{
+    text-decoration: none;
+    color: white;
+    background-color: #9a9a9a;
+    padding: 10px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bars .bars-active{
+    text-decoration: none;
+    color: white;
+    background-color: brown;
+    padding: 10px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width : 428px){
+    .item-collapse{
+        display: none;
+    }
+}

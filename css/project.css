@@ -269,7 +269,7 @@ hr{
 }
 
 #barsMenu{
-    display: none;
+    display: block;
 }
 
 .bars{
@@ -299,6 +299,9 @@ hr{
 }
 
 @media only screen and (max-width : 428px){
+    .item-collapse{
+        display: none;
+    }
     .project{
         width: 100%;
     }
@@ -308,7 +311,29 @@ hr{
     .project .project-form{
         width: 70%;
     } 
-    .contents{
+    .kelas1{
+        width: 100%;
+    }
+    .kelas2{
+        width: 80%;
+    }
+    .kelas3{
+        width: 70%;
+    }
+    .kelas2 h1{
+        font-size: 15px;
+    }
+    .kelas2 p{
+        text-align: justify;
+        font-size: 10px ;
+    }
+    .kelas5  {
+        display: block;
+        margin-left: 50px;
+    }
+    .btn-right{
+        margin-right: 70px;
         justify-content: center;
     }
+    
 }
