@@ -135,8 +135,11 @@ button:hover{
     align-items: center;
 }
 
-@media only screen and (max-width : 428px){
+@media only screen and (max-width : 700px){
     .item-collapse{
         display: none;
+    }
+    #barsMenu{
+        display: block;
     }
 }
