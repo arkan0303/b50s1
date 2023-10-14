@@ -6,11 +6,11 @@
 
 
 function submitData() {
-    let name = document.getElementById("input-name").value;
-    let email = document.getElementById("input-email").value;
-    let number = document.getElementById("input-number").value;
+    let name = document.getElementById("nama").value;
+    let email = document.getElementById("email").value;
+    let number = document.getElementById("number").value;
     let subject = document.getElementById("input-select").value;
-    let message = document.getElementById("input-message").value;
+    let message = document.getElementById("Description").value;
 
     if (name === ""){
         return alert("mas isi name nya")

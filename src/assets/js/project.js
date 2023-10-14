@@ -166,7 +166,7 @@ function renderProject (){
 
     for (let index = 0; index < dataProject.length; index ++ ){
         console.log(dataProject[index])
-decodeURI
+        
         document.getElementById("contents").innerHTML += `
         <div id="contents" class="kelas1">
             <div class="kelas2">

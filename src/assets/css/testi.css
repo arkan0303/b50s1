@@ -109,7 +109,6 @@ nav ul li:hover{
 }
 .testimonial img {
     height: 200px;
-    background-image: url(/image/arkan4.jpg) ;
     object-fit: cover;
     background-position: 0 -250px;
 }

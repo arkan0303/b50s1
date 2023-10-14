@@ -1,0 +1,15 @@
+{
+  "name": "personal-web",
+  "version": "1.0.0",
+  "description": "ini project pertama saya",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Arkanul adelis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0"
+  }
+}
