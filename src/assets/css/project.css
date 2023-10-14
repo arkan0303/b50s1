@@ -1,4 +1,4 @@
-/* css navbar */
+/* css navbar
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -48,11 +48,11 @@ nav ul li:hover{
 
 .nav-left{
     /* background-color: aqua; */
-    flex: 50%;
-}
-
+    /* flex: 50%;
+} */
+/* 
 .nav-right{
-    /* background-color: brown; */
+    background-color: brown;
     flex: 50%;
     text-align: end;
     margin-right: 25px;
@@ -70,8 +70,8 @@ nav ul li:hover{
     font-weight: bold;
 }
 /* project css */
-.project-form{
-    /* background-color: ; */
+/* .project-form{
+    
     width: 400px;
     border: 5px solid brown;
     border-radius: 20px;
@@ -80,16 +80,15 @@ nav ul li:hover{
     padding: 0px 50px;
     display: flex;
     justify-content: center;
-}
-.project-form .form-container{
+} */
+/* .project-form .form-container{
     width: 300px;
 }
 .form-container input, label, textarea{
     color: white;
-}
-.input-image-group p {
+} */
+/* .input-image-group p {
     color: white;
-    /* border: 1px solid black; */
     background-color: black;
     padding: 5px 15px;
     border-radius: 10px;
@@ -203,7 +202,6 @@ hr{
     flex-wrap: wrap; 
     display: flex;
     flex-wrap: wrap;
-    /* border: 1px solid red; */
     width: 80%;
     margin-left: auto;
     margin-right: auto; 
@@ -246,7 +244,6 @@ hr{
 }
 .kelas5 .btn-left{
     flex: 50%;
-    /* background-color: aqua; */
 }
 .kelas5 .btn-left button{
     background-color: black;
@@ -257,7 +254,6 @@ hr{
 }
 .kelas5 .btn-right{
     flex: 50%;
-    /* background-color: aquamarine; */
 }
 .kelas5 .btn-right button {
     background-color: black;
@@ -265,7 +261,7 @@ hr{
     padding: 5px 115px;
     border: 1px solid rgb(87, 84, 84);
     border-radius: 5px;
-}
+} */ 
 
 #barsMenu{
     display: none;
@@ -297,7 +293,7 @@ hr{
     align-items: center;
 }
 
-@media only screen and (max-width : 428px){
+/* @media only screen and (max-width : 428px){
     .item-collapse{
         display: none;
     }
@@ -338,4 +334,4 @@ hr{
         display: block;
     }
     
-}
+} */

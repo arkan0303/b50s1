@@ -3,26 +3,39 @@ const path = require ("path")
 const app = express()
 const port = 5000
 
+app.set("view engine", "hbs");
+app.set("views", path.join (__dirname, "src/view"));
 
-// app.get("/arkan", function (req, res){
-//     res.send("Hello gays wlcom tu the club")
-// })
-// app.listen(post, function(){
-//     console.log("app listening on post 5000");
-// app.get("/aku", (req, res) =>{
-//     res.send("Pinjam dulu seratus")
-// })
-// app.listen(post, () => {
-//     console.log ("ini running 5000");
-// })
+//routing
+app.get("/home",home);
+app.get("/upload-project", project)
+app.get("/testimonial",testi)
+app.get("/contact", contact)
+app.get("/detail-post", post)
 
-app.set("view engine", "hbs")
-app.set("view", path.join (__dirname , "src/view"))
+//set stastic file server
+app.use(express.static("src/assets"))
 
-app.get("/home" , home)
+
+//local server
 app.listen(port, () => {
-    console.log("server running port 5000");
-})
+    console.log("server running on port 5000");
+});
+
+
 function home (req, res){
-    res.render("index")
+    res.render("index");
 }
+function project (req, res){
+    res.render("upload-project")
+}
+function testi (req, res){
+    res.render("testimonial")
+}
+function contact (req, res){
+    res.render("kontak")
+}
+function post (req, res){
+    res.render("project-detail")
+}
+
