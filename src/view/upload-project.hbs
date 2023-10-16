@@ -44,37 +44,38 @@
       </div>
 
       <div>
-            <form class="w-50 p-1 mx-auto" onsubmit="addData(event)">
+        {{!-- onsubmit="addData(event)"  --}}
+            <form class="w-50 p-1 mx-auto" method="post" action="/upload-project">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" >
+                    <input type="text" class="form-control" name="title" id="title" >
                 </div>
                 <div class="mb-3 d-flex">
                     <div class="w-50 p-1">
                         <label for="start-date" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" id="start-date">
+                        <input type="date" class="form-control" name="start-date" id="start-date">
                     </div>
                     <div class="w-50 p-1">
                         <label for="end-date" class="form-label">End Date</label>
-                        <input type="date" class="form-control" id="end-date">
+                        <input type="date" class="form-control" name="end-date" id="end-date">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="Description" class="form-label">Description</label>
-                    <textarea class="form-control"  id="Description" style="resize: none; height: 100px;"></textarea>
+                    <textarea class="form-control" name="Description"  id="Description" style="resize: none; height: 100px;"></textarea>
                 </div>
-                <div d-flex>
-                    <label for="">Technologies</label>
+                <div class="" >
+                    <label for="Technologies">Technologies</label>
                     <div>
-                        <input type="checkbox" id="node" >
+                        <input type="checkbox" name="Technologies" value="node js" id="node" >
                         <label class="" for="node">Node Js</label>
-                        <input class="ms-3" type="checkbox" id="next" >
+                        <input class="ms-3" type="checkbox" name="Technologies" value="next js" id="next" >
                         <label class="" for="next">Next Js</label>
                     </div>
                     <div >
-                        <input type="checkbox" id="react" >
+                        <input type="checkbox" name="Technologies" value="react js" id="react" >
                         <label class="" for="react">React Js</label>
-                        <input class="ms-3" type="checkbox" id="type" >
+                        <input class="ms-3" type="checkbox" name="Technologies" value="type script" id="type" >
                         <label class="" for="type">Type Script</label>
                     </div>
                 </div>
