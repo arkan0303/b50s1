@@ -81,7 +81,7 @@
 
 
     
-
+  
     <div class="mt-4">
         <h4 class="d-flex justify-content-center mt-5 mb-5">This is the result of my project</h4>
     </div>
@@ -90,24 +90,27 @@
       <div class="d-flex justify-content-center  " >
             <div class="d-flex flex-wrap ms-3">
                     <div class="card pt-3 pb-0 ps-3 pe-3 bg-light shadow  mb-5 bg-body-tertiary rounded" style="width: 18rem;" id="contents">
-                        <img src="/image/coding.gif" class="rounded" alt="...">
+                        {{!-- <img src="/image/coding.gif" class="rounded" alt="..."> --}}
+                        <img src="/image/pc coding.gif" alt="rounded" srcset="">
                        <div class="card-body">
-                           <h5 > <a class="text-decoration-none text-dark" href="/detail-post">{{this.title}}</a> </h5>
-                           <p style="font-size: 11px;" class=" fw-lighter">{{this.startDate}} | {{this.author}}</p>
+                           <h5 > <a class="text-decoration-none text-dark" href="/detail-post/{{@index}}">{{this.title}}</a> </h5>
+                           <p style="font-size: 11px;" class=" fw-lighter">{{this.postAt}} | {{this.durasiProject}} | {{this.author}}</p>
                            <p class="card-text">{{this.Description}}</p>
                            <div style="display:flex ;
-                                        margin-bottom:10px ;                                       
-                                        font-size: 20px;
-                                        width: 30px;
-                                        height: 30px;" class="icon">
-                                <img style="margin-right: 5px;" src="/image/node.png" alt="" />
-                                <img style="margin-right: 5px;" src="/image/nextjs.png" alt="" />
-                                <img style="margin-right: 5px;" src="/image/react.png" alt="" />
-                                <img style="margin-right: 5px;" src="/image/type.png" alt="" />
-                            </div>
+                                    margin-bottom:10px ;
+                                    object-fit:cover;
+                                    font-size: 20px;
+                                    width: 30px;
+                                    height: 30px;" class="icon">
+                            <img style="margin-right: 5px;" src="/image/node.png" alt="" />
+                            <img style="margin-right: 5px;" src="/image/nextjs.png" alt="" />
+                            <img style="margin-right: 5px;" src="/image/react.png" alt="" />
+                            <img style="margin-right: 5px;" src="/image/type.png" alt="" />
+                        </div>
+                           
                             <div class="d-flex justify-content-center pt-3">
-                                <button class="px-5 bg-dark text-light fw-bold" type="button" class="btn btn-dark">Hapus</button>
-                                <button class="px-5 ms-2 bg-dark text-light fw-bold" type="button" class="btn btn-dark">Edit</button>
+                                <a href="/delete-project/123{{@index}}" class="px-5 bg-dark text-light fw-bold"  class="btn btn-dark">Hapus</a>
+                                <a href="/project/edit/{{@index}}" class="px-5 ms-2 bg-dark text-light fw-bold" type="button" class="btn btn-dark">Edit</a>
                             </div>
                         </div>
                    </div>
