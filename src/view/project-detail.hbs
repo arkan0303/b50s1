@@ -35,7 +35,6 @@
         </div>
       </nav>
 
-    {{#each projects}} 
     <h4 class="d-flex justify-content-center mt-4 mb-2">Detail Project</h4>
     <div class="" style="max-width: 540px;">
     <div class=" d-flex w 50 ms-5">
@@ -47,11 +46,11 @@
                 <h5 class="mt-4">Duration</h5>
                 <div class="d-flex mb-4 ">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <p id="durasi" class="ms-3 d-flex align-items-center">{{projects.postAt}}</p>
+                    <p id="durasi" class="ms-3 d-flex align-items-center">{{project.startDate}}</p>
                 </div>
                 <div class="d-flex">
                     <i class="fa-solid fa-clock"></i>
-                    <p class="ms-3 align-items-center">{{projects.durasiProject}}</p>
+                    <p class="ms-3 align-items-center">{{project.durasiProject}}</p>
                 </div>
                 <div class="pb-3 mt-3">
                     <h4>Technologies</h4>
@@ -89,12 +88,13 @@
     </div>
     </div>
     <div>
-        <h4>{{projects.title}}</h4>
+        <h4>{{project.title}}</h4>
     </div>
     <p style="text-align: justify;">
-        {{projects.Description}}
+        {{project.Description}}
     </p>
-    {{/each}}
+    {{!-- {{#each project}} 
+    {{/each}} --}}
     
 
 </body>
