@@ -5,8 +5,16 @@ const { title } = require('process');
 const app = express();
 const port = 5000;
 
+//connect to database
+const config = require("./src/config/config.json")
+const {Sequelize, QueryTypes} = require("sequelize")
+const sequelize = new Sequelize(config.development)
+// console.log(config.development);
+
+//connect to hbs
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src/view'));
+
 
 //set stastic file server
 app.use(express.static('src/assets'));
@@ -29,91 +37,102 @@ app.listen(port, () => {
 });
 
 //data dummy
-const projects = [
-    {
-        id: 0,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-    {
-        id: 1,
-        title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
-        startDate: '2023-11-17',
-        enddate: '2026-08-26',
-        author: 'Arkanul Adelis',
-        Description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content",
-        Technologies: ['node-js', 'golang', 'react', 'java'],
-    },
-];
-function home(req, res) {
-    res.render('index', { projects });
+// const projects = [
+//     {
+//         id: 0,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+//     {
+//         id: 1,
+//         title: 'Bahasa pemograman terebaru , yang akan bumming di masa depan',
+//         startDate: '2023-11-17',
+//         enddate: '2026-08-26',
+//         author: 'Arkanul Adelis',
+//         Description:
+//             "Some quick example text to build on the card title and make up the bulk of the card's content",
+//         Technologies: ['node-js', 'golang', 'react', 'java'],
+//     },
+// ];
+async function home(req, res) { 
+    try{
+        const query = `SELECT id, title, start_date, end_date, description, technologies, image, author "createdAt" FROM Projects`
+        let obj = await sequelize.query(query, { type: QueryTypes.SELECT})
+
+        console.log(obj);
+        res.render('index', { projects });
+    }catch(err) {
+        console.log(err);
+    }
+    
 }
+
+
 function project(req, res) {
     res.render('upload-project');
 }
@@ -222,7 +241,7 @@ function formatTanngal(dateString) {
 app.get('/project/edit/:id', (req, res) => {
     const { id } = req.params;
     console.log(id);
-    let blog = projects.filter((blog) => blog.id == id)[0];
+    let blog = projects[id]
 
     // destructuring
     blog = {
