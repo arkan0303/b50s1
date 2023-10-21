@@ -1,7 +1,7 @@
 const testimonial  = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
 
-    xhr.open("GET" , "https://api.npoint.io/e64f0fc461cb3d510df4" , true)
+    xhr.open("GET" , "https://api.npoint.io/c2100bf7e6e14ad10485" , true)
 
 
     xhr.onload = function (){

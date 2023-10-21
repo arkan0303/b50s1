@@ -46,11 +46,11 @@
                 <h5 class="mt-4">Duration</h5>
                 <div class="d-flex mb-4 ">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <p id="durasi" class="ms-3 d-flex align-items-center">{{project.startDate}}</p>
+                    <p id="durasi" class="ms-3 d-flex align-items-center">{{database.createdAt}}</p>
                 </div>
                 <div class="d-flex">
                     <i class="fa-solid fa-clock"></i>
-                    <p class="ms-3 align-items-center">{{project.durasiProject}}</p>
+                    <p class="ms-3 align-items-center">{{database.durasiProject}}</p>
                 </div>
                 <div class="pb-3 mt-3">
                     <h4>Technologies</h4>
@@ -87,11 +87,12 @@
         </div>
     </div>
     </div>
-    <div>
-        <h4>{{project.title}}</h4>
+    <div class="">
+        <h4>{{database.title}}</h4>
+        <p class="fs-6">{{database.author}}</p>
     </div>
     <p style="text-align: justify;">
-        {{project.Description}}
+        {{database.description}}
     </p>
     {{!-- {{#each project}} 
     {{/each}} --}}

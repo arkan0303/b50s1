@@ -4,6 +4,7 @@ const path = require('path');
 const { title } = require('process');
 const app = express();
 const port = 5000;
+// const Project = require('./src/models')
 
 //connect to database
 const config = require("./src/config/config.json")
@@ -36,7 +37,7 @@ app.listen(port, () => {
     console.log('server running on port 5000');
 });
 
-//data dummy
+// data dummy
 // const projects = [
 //     {
 //         id: 0,
@@ -119,18 +120,37 @@ app.listen(port, () => {
 //         Technologies: ['node-js', 'golang', 'react', 'java'],
 //     },
 // ];
+
+
 async function home(req, res) { 
     try{
-        const query = `SELECT id, title, start_date, end_date, description, technologies, image, author "createdAt" FROM Projects`
+        const query = `SELECT * FROM "Projects"`
         let obj = await sequelize.query(query, { type: QueryTypes.SELECT})
 
-        console.log(obj);
-        res.render('index', { projects });
+        const database = obj.map((res) => ({
+            ...res,
+            author: "Arkanul Adelis"
+        }))
+        // console.log(database);
+        res.render('index', {database});
     }catch(err) {
         console.log(err);
     }
     
 }
+
+
+
+
+// async function Projects(req, res) { 
+//     try{
+//         const databa = await Project.findAll() 
+//         console.log(databa);
+//     }catch(err) {
+//         console.log(err);
+//     }
+    
+// }
 
 
 function project(req, res) {
@@ -142,31 +162,45 @@ function testi(req, res) {
 function contact(req, res) {
     res.render('kontak');
 }
-function post(req, res) {
-    const { id } = req.params;
-    let project = projects[id]
-    console.log(id);
-    let startDateValue = new Date(project.startDate);
-    let endDateValue = new Date(project.enddate);
+async function post(req, res) {
+    try{
+        const { id } = req.params;
+        const query = `SELECT * FROM "Projects" WHERE id=${id}`
+        let obj = await sequelize.query(query, { type: QueryTypes.SELECT})
+        const database = obj.map((res) => ({
+            ...res,
+            author: "Arkanul Adelis"
+        }))
 
-    let durasiWaktu = endDateValue.getTime() - startDateValue.getTime();
-    let durasiHari = durasiWaktu / (1000 * 3600 * 24);
-    let durasiMinggu = Math.floor(durasiHari / 7);
-    let durasiBulan = Math.floor(durasiHari / 30);
-    let durasiProject = '';
+        console.log(obj);
+        let project = database[id]
+        console.log(project);
+        let startDateValue = new Date(project.start_date);
+        let endDateValue = new Date(project.end_date);
 
-    if (durasiHari <= 6) {
-        durasiProject = 'Durasi' + ' ' + durasiHari + ' ' + 'Hari';
-    } else if (durasiMinggu <= 3) {
-        durasiProject = 'Durasi' + ' ' + durasiMinggu + ' ' + 'Minggu';
-    } else if (durasiBulan >= 1) {
-        durasiProject = 'Durasi' + ' ' + durasiBulan + ' ' + 'Bulan';
+        let durasiWaktu = endDateValue.getTime() - startDateValue.getTime();
+        let durasiHari = durasiWaktu / (1000 * 3600 * 24);
+        let durasiMinggu = Math.floor(durasiHari / 7);
+        let durasiBulan = Math.floor(durasiHari / 30);
+        let durasiProject = '';
+
+        if (durasiHari <= 6) {
+            durasiProject = 'Durasi' + ' ' + durasiHari + ' ' + 'Hari';
+        } else if (durasiMinggu <= 3) {
+            durasiProject = 'Durasi' + ' ' + durasiMinggu + ' ' + 'Minggu';
+        } else if (durasiBulan >= 1) {
+            durasiProject = 'Durasi' + ' ' + durasiBulan + ' ' + 'Bulan';
+        }
+
+        project = { ...project, durasiProject };
+
+        console.log('project === ', project);
+        res.render('project-detail', { database: database[0]});
+    }catch(err) {
+        console.log(err);
     }
-
-    project = { ...project, durasiProject };
-
-    console.log('project === ', project);
-    res.render('project-detail', { project });
+    
+    
 }
 
 function submit(req, res) {
@@ -207,8 +241,8 @@ function submit(req, res) {
         durasiProject,
         Description,
         Technologies,
-        postAt: new Date(),
-        author: 'Arkanul Adelis',
+        // postAt: new Date(),
+        // author: 'Arkanul Adelis',
     };
 
     projects.unshift(data);
