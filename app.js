@@ -1,40 +1,63 @@
-const { count, time } = require('console');
-const express = require('express');
-const path = require('path');
-const { title } = require('process');
+const { count, time, error } = require("console");
+const express = require("express");
+const path = require("path");
+const { title } = require("process");
 const app = express();
 const port = 5000;
+const hbs = require("hbs");
+const bcrypt = require("bcrypt");
+const session = require("express-session");
+const flash = require("express-flash");
 // const Project = require('./src/models')
 
 //connect to database
-const config = require("./src/config/config.json")
-const {Sequelize, QueryTypes} = require("sequelize")
-const sequelize = new Sequelize(config.development)
+const config = require("./src/config/config.json");
+const { Sequelize, QueryTypes } = require("sequelize");
+const sequelize = new Sequelize(config.development);
 // console.log(config.development);
 
 //connect to hbs
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'src/view'));
-
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "src/view"));
+hbs.registerHelper("arrayIncludes", function (array, value) {
+  return array.includes(value);
+});
 
 //set stastic file server
-app.use(express.static('src/assets'));
+app.use(express.static("src/assets"));
 
 // parsing data from client
 app.use(express.urlencoded({ extended: false }));
 
+//setup flash
+app.use(flash());
+//setup session express
+app.use(
+  session({
+    cookie: {
+      httpOnly: true,
+      secure: false,
+      maxAge: 1000 * 60 * 60 * 2, // ini hail nya dua jam
+    },
+    store: new session.MemoryStore(),
+    save: true,
+    resave: false,
+    secret: "Arkanul Adelis",
+  })
+);
+
 //routing
-app.get('/home', home);
-app.get('/upload-project', project);
-app.post('/upload-project', submit);
-app.get('/delete-project/:id', hapus);
-app.get('/testimonial', testi);
-app.get('/contact', contact);
-app.get('/detail-post/:id', post);
+app.get("/home", home);
+app.get("/upload-project", project);
+app.post("/upload-project", submit);
+app.get("/delete-project/:id", hapus);
+app.get("/testimonial", testi);
+app.get("/contact", contact);
+app.get("/detail-post/:id", post);
 
 //local server
 app.listen(port, () => {
-    console.log('server running on port 5000');
+  console.log("server running on port 5000");
 });
 
 // data dummy
@@ -121,178 +144,204 @@ app.listen(port, () => {
 //     },
 // ];
 
+async function home(req, res) {
+  try {
+    const query = `SELECT * FROM "Projects"`;
+    let obj = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-async function home(req, res) { 
-    try{
-        const query = `SELECT * FROM "Projects"`
-        let obj = await sequelize.query(query, { type: QueryTypes.SELECT})
-
-        const database = obj.map((res) => ({
-            ...res,
-            author: "Arkanul Adelis"
-        }))
-        // console.log(database);
-        res.render('index', {database});
-    }catch(err) {
-        console.log(err);
-    }
-    
+    const database = obj.map((res) => ({
+      ...res,
+      author: "Arkanul Adelis",
+    }));
+    // console.log(database);
+    res.render("index", { database });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-
-
-
-// async function Projects(req, res) { 
+// async function Projects(req, res) {
 //     try{
-//         const databa = await Project.findAll() 
+//         const databa = await Project.findAll()
 //         console.log(databa);
 //     }catch(err) {
 //         console.log(err);
 //     }
-    
+
 // }
 
-
 function project(req, res) {
-    res.render('upload-project');
+  res.render("upload-project");
 }
 function testi(req, res) {
-    res.render('testimonial');
+  res.render("testimonial");
 }
 function contact(req, res) {
-    res.render('kontak');
+  res.render("kontak");
 }
 async function post(req, res) {
-    try{
-        const { id } = req.params;
-        const query = `SELECT * FROM "Projects" WHERE id=${id}`
-        let obj = await sequelize.query(query, { type: QueryTypes.SELECT})
-        const database = obj.map((res) => ({
-            ...res,
-            author: "Arkanul Adelis"
-        }))
+  try {
+    const { id } = req.params;
+    const query = `SELECT * FROM "Projects" WHERE id=${id}`;
+    let obj = await sequelize.query(query, { type: QueryTypes.SELECT });
+    const database = obj.map((res) => ({
+      ...res,
+      author: "Arkanul Adelis",
+    }));
 
-        console.log(obj);
-        let project = database[id]
-        console.log(project);
-        let startDateValue = new Date(project.start_date);
-        let endDateValue = new Date(project.end_date);
-
-        let durasiWaktu = endDateValue.getTime() - startDateValue.getTime();
-        let durasiHari = durasiWaktu / (1000 * 3600 * 24);
-        let durasiMinggu = Math.floor(durasiHari / 7);
-        let durasiBulan = Math.floor(durasiHari / 30);
-        let durasiProject = '';
-
-        if (durasiHari <= 6) {
-            durasiProject = 'Durasi' + ' ' + durasiHari + ' ' + 'Hari';
-        } else if (durasiMinggu <= 3) {
-            durasiProject = 'Durasi' + ' ' + durasiMinggu + ' ' + 'Minggu';
-        } else if (durasiBulan >= 1) {
-            durasiProject = 'Durasi' + ' ' + durasiBulan + ' ' + 'Bulan';
-        }
-
-        project = { ...project, durasiProject };
-
-        console.log('project === ', project);
-        res.render('project-detail', { database: database[0]});
-    }catch(err) {
-        console.log(err);
-    }
-    
-    
-}
-
-function submit(req, res) {
-    console.log(req.body);
-    let {
-        title: title,
-        startDate: startDate,
-        enddate: endDate,
-        Technologies: Technologies,
-        Description: Description,
-    } = req.body;
-    console.log();
-    console.log('title', 'startDate', 'endDate', 'Technologies', 'Description');
-
-    //durasi
-    let startDateValue = new Date(startDate);
-    let endDateValue = new Date(endDate);
+    console.log(obj);
+    let project = database[0];
+    console.log(project);
+    let startDateValue = new Date(project.start_date);
+    let endDateValue = new Date(project.end_date);
 
     let durasiWaktu = endDateValue.getTime() - startDateValue.getTime();
     let durasiHari = durasiWaktu / (1000 * 3600 * 24);
     let durasiMinggu = Math.floor(durasiHari / 7);
     let durasiBulan = Math.floor(durasiHari / 30);
-    let durasiProject = '';
+    let durasiProject = "";
 
     if (durasiHari <= 6) {
-        durasiProject = 'Durasi' + ' ' + durasiHari + ' ' + 'Hari';
+      durasiProject = "Durasi" + " " + durasiHari + " " + "Hari";
     } else if (durasiMinggu <= 3) {
-        durasiProject = 'Durasi' + ' ' + durasiMinggu + ' ' + 'Minggu';
+      durasiProject = "Durasi" + " " + durasiMinggu + " " + "Minggu";
     } else if (durasiBulan >= 1) {
-        durasiProject = 'Durasi' + ' ' + durasiBulan + ' ' + 'Bulan';
+      durasiProject = "Durasi" + " " + durasiBulan + " " + "Bulan";
     }
 
-    const data = {
-        id: projects.length + 1,
-        title,
-        startDate,
-        endDate,
-        durasiProject,
-        Description,
-        Technologies,
-        // postAt: new Date(),
-        // author: 'Arkanul Adelis',
-    };
+    project = { ...project, durasiProject };
 
-    projects.unshift(data);
-    console.log(projects);
-    console.log(req.body);
-
-    res.redirect('/home');
+    console.log("project === ", project);
+    res.render("project-detail", { database: project });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function hapus(req, res) {
+//uplod project
+async function submit(req, res) {
+  try {
+    const {
+      title,
+      "start-date": start_date,
+      "end-date": end_date,
+      Description: description,
+      Technologies: technologies,
+    } = req.body;
+    const image = "image pmg";
+    const querySubmit = `INSERT INTO "Projects" (title, start_date, end_date, description, technologies, image, "createdAt", "updatedAt") VALUES ('${title}', '${start_date}', '${end_date}', '${description}', ARRAY['${technologies}'], '${image}', NOW(), NOW())`;
+
+    await sequelize.query(querySubmit);
+    //durasi
+    let startDateValue = new Date(start_date);
+    let endDateValue = new Date(end_date);
+
+    let durasiWaktu = endDateValue.getTime() - startDateValue.getTime();
+    let durasiHari = durasiWaktu / (1000 * 3600 * 24);
+    let durasiMinggu = Math.floor(durasiHari / 7);
+    let durasiBulan = Math.floor(durasiHari / 30);
+    let durasiProject = "";
+
+    if (durasiHari <= 6) {
+      durasiProject = "Durasi" + " " + durasiHari + " " + "Hari";
+    } else if (durasiMinggu <= 3) {
+      durasiProject = "Durasi" + " " + durasiMinggu + " " + "Minggu";
+    } else if (durasiBulan >= 1) {
+      durasiProject = "Durasi" + " " + durasiBulan + " " + "Bulan";
+    }
+    res.redirect("/home");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function hapus(req, res) {
+  try {
     const { id } = req.params;
-    projects.splice(id, 1);
-    res.redirect('/home');
-    console.log(id);
+    let obj = await sequelize.query(`DELETE FROM "Projects" WHERE id =` + id);
+    console.log(obj);
+    res.redirect("/home");
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function formatTanngal(dateString) {
-    const dateObj = new Date(dateString);
-    const formattedDate =
-        dateObj.getFullYear() +
-        '-' +
-        (dateObj.getMonth() + 1).toString().padStart(2, '0') +
-        '-' +
-        dateObj.getDate().toString().padStart(2, '0');
+  const dateObj = new Date(dateString);
+  const formattedDate =
+    dateObj.getFullYear() +
+    "-" +
+    (dateObj.getMonth() + 1).toString().padStart(2, "0") +
+    "-" +
+    dateObj.getDate().toString().padStart(2, "0");
 
-    return formattedDate;
+  return formattedDate;
 }
 
 //edit projet
-app.get('/project/edit/:id', (req, res) => {
-    const { id } = req.params;
-    console.log(id);
-    let blog = projects[id]
+app.get("/project/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const query = `SELECT * FROM "Projects" WHERE id=${id}`;
+  let obj = await sequelize.query(query, { type: QueryTypes.SELECT });
+  // console.log(id);
 
-    // destructuring
-    blog = {
-        ...blog,
-        startDate: formatTanngal(blog.startDate),
-        enddate: formatTanngal(blog.enddate),
-    };
+  // destructuring
+  console.log(obj);
+  obj = obj[0];
+  obj = {
+    ...obj,
+    start_date: formatTanngal(obj.start_date),
+    end_date: formatTanngal(obj.end_date),
+  };
 
-    // 17 August 2023
-    // YYYY-MM-DD
-    // 2023-11-17
-
-    console.log(blog);
-
-    res.render('edit-project', {
-        layout: 'edit-project',
-        active: { Blog: true },
-        blog,
-    });
+  res.render("edit-project", {
+    layout: "edit-project",
+    active: { Blog: true },
+    obj,
+  });
 });
+
+//Register
+app.get("/register", register);
+function register(req, res) {
+  res.render("register");
+}
+app.post("/register", postRegister);
+async function postRegister(req, res) {
+  try {
+    const { name: name, email: email, password: password } = req.body;
+    await bcrypt.hash(password, 10, (error, hashPassword) => {
+      const querySubmit = `INSERT INTO "Users" (name, email, password,"createdAt", "updatedAt") VALUES ('${name}', '${email}', '${hashPassword}', NOW(), NOW())`;
+
+      sequelize.query(querySubmit);
+    });
+
+    res.redirect("/login");
+  } catch (error) {}
+}
+
+//Login
+app.get("/login", login);
+function login(req, res) {
+  res.render("login");
+}
+app.post("/login", postLogin);
+async function postLogin(req, res) {
+  try {
+    const { email: email, password: password } = req.body;
+    const query = `SELECT * FROM "Users" WHERE email= '${email}'`;
+    let obj = await sequelize.query(query, { type: QueryTypes.SELECT });
+
+    await bcrypt.compare(password, obj[0].password, (err, result) => {
+      if (!result) {
+        req.flash("danger", "password salah anjimmm");
+        return res.redirect("/login");
+      } else {
+        req.session.isLogin = true;
+        req.session.user = obj[0].name;
+        req.flash("succes", "login succes");
+        return res.redirect("/home");
+      }
+    });
+  } catch (error) {}
+}
