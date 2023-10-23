@@ -27,8 +27,23 @@
                 <a class="nav-link" href="/testimonial">Testimonial</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">          
-              <a class="btn btn-outline-success text-dark fw-bold bg-danger" href="/contact" >Contact</a>
+            <form class="d-flex navbar-nav mb-2 mb-lg-0" role="search">    
+              {{#if isLogin}}
+                <li class="nav-item">
+                    <a class="nav-link active text-danger fw-bold" href="#">Hallo, {{user}}</a>
+                </li>      
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>   
+              {{else}}
+                <li class="nav-item">
+                    <a class="nav-link active text-danger fw-bold" href="/register">Register</a>
+                </li>      
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>   
+              {{/if}}  
+              <a class="btn btn-outline-success text-dark fw-bold bg-danger" href="/contact" >Contact Me</a>
             </form>
           </div>
         </div>
